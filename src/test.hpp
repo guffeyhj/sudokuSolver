@@ -4,24 +4,26 @@
 #include <cstdio>
 #include "board.hpp"
 
-void PRINTGRID(void){
-    for (int i = 0; i < 9; i++){
-        for (int j = 0; j < 9; j++){
-            printf("%u", board.grid[j][i]);
-            if (j == 2 || j == 5){
-                printf("|");
+void WRITEGRID(void){
+    FILE* file;
+    file = fopen("test.ssolv","w");
+    
+    for (uint8_t y = 0; y < 9; y++){
+        for (uint8_t x = 0; x < 9; x++){
+            fprintf(file, "%c", board.grid[x][y]+48);
+            if (x == 2 || x == 5){
+                fprintf(file, "|");
+            }
+            if (x == 8 && y != 8){
+                fprintf(file, "\n");
             }
         }
-        printf("\n");
-        if (i == 2 || i == 5){
-            printf("---+---+---\n");
+        if (y == 2 || y == 5){
+            fprintf(file, "---+---+---\n");
         }
     }
-}
 
-void MODSOMETHING(void){
-    board.grid[0][0] = 4;
-    board.grid[8][8] = 2;
+    fclose(file);
 }
 
 #endif
