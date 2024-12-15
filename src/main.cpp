@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdint>
+#include "test.hpp"
 
 using namespace std;
 
@@ -27,11 +28,7 @@ class BOARDFILE{
 
     public:
         void writeTemplate(void){
-            this->writeTemplate("default.txt");
-        }
-
-        void writeTemplate(const char fileName[20]){
-            file = fopen(fileName,"w");
+            file = fopen("template.sol","w");
 
             this->writeData();
             this->writeData();
@@ -49,15 +46,10 @@ class BOARDFILE{
         }
 
         void readTemplate(void){
-            this->readTemplate("default.txt");
-        }
-
-        void readTemplate(const char fileName[20]){
-            file = fopen(fileName,"r");
+            file = fopen("template.sol","r");
             if (file == NULL){
-                printf("File does not exist\n");
-                fclose(file);
                 this->writeTemplate();
+                return;
             }
             
             uint8_t idx = 0;
@@ -95,23 +87,11 @@ void PRINTGRID(void){
     }
 }
 
-int main(int argc, char* argv[]){
-    if (argc > 1){
-        if (!strcmp(argv[1], "-t") || !strcmp(argv[1], "--template")){
-            if (argc == 2){
-                boardFile.writeTemplate();
-            }
-            else{
-                boardFile.writeTemplate(argv[2]);
-            }
-
-            return 0;
-        }
-    }
-
+int main(void){
     boardFile.readTemplate();
-
     PRINTGRID();
+
+    print();
 
     return 0;
 }
