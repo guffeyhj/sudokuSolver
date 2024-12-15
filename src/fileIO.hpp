@@ -1,9 +1,9 @@
-#ifndef FILEIO
-#define FILEIO
+#ifndef FILEIO_HPP
+#define FILEIO_HPP
 
 #include <cstdio>
 
-class FILEIO{
+class FileIO{
     FILE* file;
     char temp[11];
 
@@ -12,8 +12,11 @@ class FILEIO{
     void writeEnd(void);
 
     public:
+        void writeTemplate(void);
         void write(void);
         void read(void);
-}fileIO;
+};
+
+extern FileIO fileIO;
 
 #endif
