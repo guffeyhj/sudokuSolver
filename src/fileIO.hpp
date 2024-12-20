@@ -15,6 +15,7 @@ class FileIO{
         void writeTemplate(void);
         void write(void);
         void read(void);
+        void dumpMem(void);
 };
 
 extern FileIO fileIO;
