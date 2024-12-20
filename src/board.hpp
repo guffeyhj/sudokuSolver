@@ -10,6 +10,7 @@ class Board{
         uint8_t grid[9][9];
         bool possibilities[9][9][9];
         uint8_t numPossibilities[9][9];
+        uint16_t outstandingItems;
 
         Board(void);
 

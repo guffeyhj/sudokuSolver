@@ -20,11 +20,13 @@ void FileIO::writeTemplate(void){
         }
     }
 
+    board.outstandingItems = 0;
+
     fclose(file);
 }
 
 void FileIO::write(void){
-    file = fopen("test.ssolv","w");
+    file = fopen("template.ssolv","w");
     
     for (uint8_t i = 0; i < 9; i++){
         for (uint8_t j = 0; j < 9; j++){

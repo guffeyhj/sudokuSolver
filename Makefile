@@ -15,6 +15,4 @@ test:
 .PHONY: clean
 clean:
 	rm -rf ./build/*
-	rm -rf ./bin/sudokuSolver
-	rm -rf ./bin/test.ssolv
-	rm -rf ./bin/poss.ssolv
+	rm -rf ./bin/*
