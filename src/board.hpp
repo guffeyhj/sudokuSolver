@@ -12,6 +12,10 @@ class Board{
         uint8_t numPossibilities[9][9];
 
         Board(void);
+
+        uint8_t count(uint8_t, uint8_t);
+        void test(uint8_t, uint8_t);
+
 };
 
 extern Board board;
